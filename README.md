@@ -10,16 +10,6 @@ A simple, stylish calculator designed using **Neumorphism UI** principles. This 
 ✅ **Neumorphism UI Design** (Soft shadow effects for a modern look)
 ✅ **Keyboard Support** (Interactive button clicks)
 
-## 📂 File Structure
-
-```
-📁 Neumorphism-Calculator/
-│── 📄 index.html       # Main HTML file
-│── 📄 styles.css       # CSS styles for Neumorphism UI
-│── 📄 script.js        # JavaScript logic for calculations
-│── 📄 README.md        # Project documentation
-```
-
 ## 🛠️ Technologies Used
 
 - **HTML** (Structure)
