@@ -1,0 +1,96 @@
+var screen = document.querySelector('#screen');
+var btn = document.querySelectorAll('.btn');
+
+for (item of btn) {
+    item.addEventListener('click', (e) => {
+        btntext = e.target.innerText;
+        if (btntext == '×') btntext = '*';
+        if (btntext == '÷') btntext = '/';
+        screen.value += btntext;
+    });
+}
+
+function calculate() {
+    try {
+        if (screen.value.trim() === "") throw "Invalid Input";
+        let result = eval(screen.value);
+        
+        // Handle division by zero
+        if (result === Infinity || result === -Infinity) {
+            screen.value = "Infinity";
+        } else {
+            screen.value = result;
+        }
+    } catch (err) {
+        screen.value = "Error";
+    }
+}
+
+function sin() {
+    try { screen.value = Math.sin(parseFloat(screen.value)); } 
+    catch { screen.value = "Error"; }
+}
+
+function cos() {
+    try { screen.value = Math.cos(parseFloat(screen.value)); } 
+    catch { screen.value = "Error"; }
+}
+
+function tan() {
+    try {
+        let val = parseFloat(screen.value);
+        if (Math.abs(Math.cos(val)) < 1e-10) throw "Math Error";
+        screen.value = Math.tan(val);
+    } catch {
+        screen.value = "Error";
+    }
+}
+
+function pow() {
+    try { screen.value = Math.pow(parseFloat(screen.value), 2); } 
+    catch { screen.value = "Error"; }
+}
+
+function sqrt() {
+    try {
+        let val = parseFloat(screen.value);
+        if (val < 0) throw "Math Error";
+        screen.value = Math.sqrt(val);
+    } catch {
+        screen.value = "Error";
+    }
+}
+
+function log() {
+    try {
+        let val = parseFloat(screen.value);
+        if (val <= 0) throw "Math Error";
+        screen.value = Math.log(val);
+    } catch {
+        screen.value = "Error";
+    }
+}
+
+function pi() {
+    screen.value = "3.14159265359";
+}
+
+function e() {
+    screen.value = "2.71828182846";
+}
+
+function fact() {
+    try {
+        let num = parseInt(screen.value);
+        if (num < 0 || !Number.isInteger(num)) throw "Math Error";
+        let f = 1;
+        for (let i = 1; i <= num; i++) f *= i;
+        screen.value = f;
+    } catch {
+        screen.value = "Error";
+    }
+}
+
+function backspc() {
+    screen.value = screen.value.substr(0, screen.value.length - 1);
+}
